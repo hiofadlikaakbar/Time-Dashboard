@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./build/output.css" />
+    <title>Time tracking dashboard</title>
+  </head>
+  <body
+    class="bg-vdBlue font-rubik flex justify-center items-center min-h-screen py-8"
+  >
+    <section
+      class="px-7 container mx-auto items-center lg:flex justify-center gap-4"
+    >
+      <!-- profile -->
+      <section class="items-stretch">
+        <div
+          class="flex flex-wrap md:flex-col gap-3 md:gap-0 bg-blue rounded-xl z-40 py-5 md:py-0 md:pb-5 relative justify-center items-center md:items-start"
+        >
+          <div class="w-1/3 lg:w-1/2">
+            <img
+              src="./images/image-jeremy.png"
+              alt="image-jeremy"
+              class="scale-[.66] rounded-full border-4 border-white"
+            />
+          </div>
+          <div class="w-1/2 md:w-full md:px-6 lg:py-10">
+            <div>
+              <p
+                class="text-paleBlue text-sm sm:text-base md:text-xl lg:text-base mb-1"
+              >
+                Report for
+              </p>
+              <p
+                class="capitalize break-words text-white font-extralight text-xl sm:text-2xl md:text-4xl"
+              >
+                jeremy robson
+              </p>
+            </div>
+          </div>
+        </div>
+        <ul
+          class="flex justify-between md:flex-col items-center md:items-start gap-3 px-6 rounded-b-xl -mt-[0.32rem] py-5 md:py-8 lg:py-5 bg-darkBlue"
+        >
+          <li>
+            <a
+              id="btn"
+              href="#"
+              onclick="dailyData()"
+              class="text-desBlue hover:text-white transition duration-300 ease-in-out text-base sm:text-lg"
+              >Daily</a
+            >
+          </li>
+          <li>
+            <a
+              id="btn"
+              href="#"
+              onclick="weeklyData()"
+              class="text-desBlue hover:text-white transition duration-300 ease-in-out text-base sm:text-lg"
+              >Weekly</a
+            >
+          </li>
+          <li>
+            <a
+              id="btn"
+              href="#"
+              onclick="monthlyData()"
+              class="text-desBlue hover:text-white transition duration-300 ease-in-out text-base sm:text-lg"
+              >Monthly</a
+            >
+          </li>
+        </ul>
+      </section>
+
+      <!-- work -->
+      <section
+        class="grid md:grid-cols-2 lg:grid-cols-3 md:gap-4 lg:gap-6 w-full 2xl:w-[50%]"
+      >
+        <section class="mt-6 lg:mt-0">
+          <div class="bg-lightRed rounded-t-xl py-6 overflow-hidden relative">
+            <img
+              src="./images/icon-work.svg"
+              alt="icon-work"
+              class="absolute -top-4 right-4"
+            />
+          </div>
+          <div
+            class="bg-darkBlue py-6 rounded-xl hover:-translate-y-5 hover:bg-[#333B8B] transition duration-300 ease-in-out -mt-[0.32rem] relative"
+          >
+            <div class="flex justify-between items-center px-6 mb-2 md:mb-5">
+              <h1 class="text-white text-lg">Work</h1>
+              <img
+                src="./images/icon-ellipsis.svg"
+                alt="icon-ellipsis"
+                class="self-center"
+              />
+            </div>
+            <div
+              class="flex md:flex-col justify-between items-center md:items-start px-6"
+            >
+              <h1
+                id="current"
+                class="text-white text-3xl md:text-5xl font-light mb-1 md:mb-2"
+              >
+                0hrs
+              </h1>
+              <p id="previous" class="text-paleBlue text-sm md:text-base">
+                Last Week - <span id="lastWeek">0hrs</span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- play -->
+        <section class="mt-6 lg:mt-0">
+          <div class="bg-softBlue rounded-t-xl py-6 overflow-hidden relative">
+            <img
+              src="./images/icon-play.svg"
+              alt="icon-play"
+              class="absolute -top-2 right-4"
+            />
+          </div>
+          <div
+            class="bg-darkBlue py-6 rounded-xl hover:-translate-y-5 hover:bg-[#333B8B] transition duration-300 ease-in-out -mt-[0.32rem] relative"
+          >
+            <div class="flex justify-between items-center px-6 mb-2 md:mb-5">
+              <h1 class="text-white text-lg">Play</h1>
+              <img
+                src="./images/icon-ellipsis.svg"
+                alt="icon-ellipsis"
+                class="self-center"
+              />
+            </div>
+            <div
+              class="flex md:flex-col justify-between items-center md:items-start px-6"
+            >
+              <h1
+                id="current"
+                class="text-white text-3xl md:text-5xl font-light mb-1 md:mb-2"
+              >
+                0hrs
+              </h1>
+              <p id="previous" class="text-paleBlue text-sm md:text-base">
+                Last Week - 0hrs
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- study -->
+        <section class="mt-6 lg:mt-0">
+          <div class="bg-lightRed2 rounded-t-xl py-6 overflow-hidden relative">
+            <img
+              src="./images/icon-study.svg"
+              alt="icon-study"
+              class="absolute -top-2 right-4"
+            />
+          </div>
+          <div
+            class="bg-darkBlue py-6 rounded-xl hover:-translate-y-5 hover:bg-[#333B8B] transition duration-300 ease-in-out -mt-[0.32rem] relative"
+          >
+            <div class="flex justify-between items-center px-6 mb-2 md:mb-5">
+              <h1 class="text-white text-lg">Study</h1>
+              <img
+                src="./images/icon-ellipsis.svg"
+                alt="icon-ellipsis"
+                class="self-center"
+              />
+            </div>
+            <div
+              class="flex md:flex-col justify-between items-center md:items-start px-6"
+            >
+              <h1
+                id="current"
+                class="text-white text-3xl md:text-5xl font-light mb-1 md:mb-2"
+              >
+                0hrs
+              </h1>
+              <p id="previous" class="text-paleBlue text-sm md:text-base">
+                Last Week - 0hrs
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- exercise -->
+        <section class="mt-6 lg:mt-0">
+          <div class="bg-limeGreen rounded-t-xl py-6 overflow-hidden relative">
+            <img
+              src="./images/icon-exercise.svg"
+              alt="icon-exercise"
+              class="absolute -top-1 right-4"
+            />
+          </div>
+          <div
+            class="bg-darkBlue py-6 rounded-xl hover:-translate-y-5 hover:bg-[#333B8B] transition duration-300 ease-in-out -mt-[0.32rem] relative"
+          >
+            <div class="flex justify-between items-center px-6 mb-2 md:mb-5">
+              <h1 class="text-white text-lg">Exercise</h1>
+              <img
+                src="./images/icon-ellipsis.svg"
+                alt="icon-ellipsis"
+                class="self-center"
+              />
+            </div>
+            <div
+              class="flex md:flex-col justify-between items-center md:items-start px-6"
+            >
+              <h1
+                id="current"
+                class="text-white text-3xl md:text-5xl font-light mb-1 md:mb-2"
+              >
+                0hrs
+              </h1>
+              <p id="previous" class="text-paleBlue text-sm md:text-base">
+                Last Week - 0hrs
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- social -->
+        <section class="mt-6 lg:mt-0">
+          <div class="bg-violet rounded-t-xl py-6 overflow-hidden relative">
+            <img
+              src="./images/icon-social.svg"
+              alt="icon-social"
+              class="absolute -top-2 right-4"
+            />
+          </div>
+          <div
+            class="bg-darkBlue py-6 rounded-xl hover:-translate-y-5 hover:bg-[#333B8B] transition duration-300 ease-in-out -mt-[0.32rem] relative"
+          >
+            <div class="flex justify-between items-center px-6 mb-2 md:mb-5">
+              <h1 class="text-white text-lg">Social</h1>
+              <img
+                src="./images/icon-ellipsis.svg"
+                alt="icon-ellipsis"
+                class="self-center"
+              />
+            </div>
+            <div
+              class="flex md:flex-col justify-between items-center md:items-start px-6"
+            >
+              <h1
+                id="current"
+                class="text-white text-3xl md:text-5xl font-light mb-1 md:mb-2"
+              >
+                0hrs
+              </h1>
+              <p id="previous" class="text-paleBlue text-sm md:text-base">
+                Last Week - 0hrs
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- self care -->
+        <section class="mt-6 lg:mt-0">
+          <div class="bg-softOrange rounded-t-xl py-6 overflow-hidden relative">
+            <img
+              src="./images/icon-self-care.svg"
+              alt="icon-self-care"
+              class="absolute -top-2 right-4"
+            />
+          </div>
+          <div
+            class="bg-darkBlue py-6 rounded-xl hover:-translate-y-5 hover:bg-[#333B8B] transition duration-300 ease-in-out -mt-[0.32rem] relative"
+          >
+            <div class="flex justify-between items-center px-6 mb-2 md:mb-5">
+              <h1 class="text-white text-lg">Self Care</h1>
+              <img
+                src="./images/icon-ellipsis.svg"
+                alt="icon-ellipsis"
+                class="self-center"
+              />
+            </div>
+            <div
+              class="flex md:flex-col justify-between items-center md:items-start px-6"
+            >
+              <h1
+                id="current"
+                class="text-white text-3xl md:text-5xl font-light mb-1 md:mb-2"
+              >
+                0hrs
+              </h1>
+              <p id="previous" class="text-paleBlue text-sm md:text-base">
+                Last Week - 0hrs
+              </p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
