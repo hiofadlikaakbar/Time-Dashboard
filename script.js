@@ -8,10 +8,10 @@ function dailyData() {
     .then((res) => res.json())
     .then((data) =>
       currentHours.forEach((e, i) => {
-        currentHours[i].textContent = ${data[i].timeframes.daily.current}hrs;
+        currentHours[i].textContent = `${data[i].timeframes.daily.current}hrs`;
         previousHours[
           i
-        ].textContent = Last week - ${data[i].timeframes.daily.previous}hrs;
+        ].textContent = `Last week - ${data[i].timeframes.daily.previous}hrs`;
       })
     );
 }
@@ -22,10 +22,10 @@ function weeklyData() {
     .then((res) => res.json())
     .then((data) =>
       currentHours.forEach((e, i) => {
-        currentHours[i].textContent = ${data[i].timeframes.weekly.current}hrs;
+        currentHours[i].textContent = `${data[i].timeframes.weekly.current}hrs`;
         previousHours[
           i
-        ].textContent = Last week - ${data[i].timeframes.weekly.previous}hrs;
+        ].textContent = `Last week - ${data[i].timeframes.weekly.previous}hrs`;
       })
     );
 }
@@ -38,10 +38,10 @@ function monthlyData() {
       currentHours.forEach((e, i) => {
         currentHours[
           i
-        ].textContent = ${data[i].timeframes.monthly.current}hrs;
+        ].textContent = `${data[i].timeframes.monthly.current}hrs`;
         previousHours[
           i
-        ].textContent = Last week - ${data[i].timeframes.monthly.previous}hrs;
+        ].textContent = `Last week - ${data[i].timeframes.monthly.previous}hrs`;
       })
     );
 }
